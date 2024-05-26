@@ -25,7 +25,7 @@ function RESTful() {
     }, []);
 
     const fetchSongs = () => {
-        fetch('http://localhost:3001/api/songs')
+        fetch('https://frontend-app-u4cah.ondigitalocean.app/api/songs')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch');
@@ -46,7 +46,7 @@ function RESTful() {
     };
 
     const handleAddSong = () => {
-        fetch('http://localhost:3001/api/songs', {
+        fetch('https://frontend-app-u4cah.ondigitalocean.app/api/songs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ function RESTful() {
     };
 
     const handleEditSong = () => {
-        fetch(`http://localhost:3001/api/songs/${editingSong.id}`, {
+        fetch(`https://frontend-app-u4cah.ondigitalocean.app/api/songs/${editingSong.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -106,7 +106,7 @@ function RESTful() {
     };
 
     const handleDeleteSong = (id) => {
-        fetch(`http://localhost:3001/api/songs/${id}`, {
+        fetch(`https://frontend-app-u4cah.ondigitalocean.app/api/songs/${id}`, {
             method: 'DELETE'
         })
             .then(response => {
