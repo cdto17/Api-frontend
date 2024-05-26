@@ -16,7 +16,7 @@ const GET_SONGS = gql`
 `;
 
 // Mutación GraphQL para agregar una cancion
-const ADD_SONGS = gql`
+const ADD_SONG = gql`
   mutation AddSong($title: String!, $artist: String!, $year: Int!, $coverImage: String) {
     addSong(title: $title, artist: $artist, year: $year, coverImage: $coverImage) {
       id
@@ -60,7 +60,7 @@ function GraphQL() {
     });
 
     const { loading, error, data } = useQuery(GET_SONGS);
-    const [addSong] = useMutation(ADD_SONGS, {
+    const [addSong] = useMutation(ADD_SONG, {
         update(cache, { data: { addSong } }) {
             const { songs } = cache.readQuery({ query: GET_SONGS });
             cache.writeQuery({
