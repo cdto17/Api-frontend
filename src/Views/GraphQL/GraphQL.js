@@ -140,7 +140,7 @@ function GraphQL() {
     return (
         <div>
             <h1>Canciones</h1>
-            <h2>Agregar/Editar Cancion</h2>
+            <h2>Agregar/Editar Canción</h2>
             <input type="text" name="title" placeholder="Título" value={formData.title} onChange={handleInputChange} />
             <input type="text" name="artist" placeholder="Artista" value={formData.artist} onChange={handleInputChange} />
             <input type="text" name="year" placeholder="Año" value={formData.year} onChange={handleInputChange} />
