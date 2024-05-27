@@ -5,6 +5,7 @@ import './App.css'
 import Inicio from "./Views/Inicio";
 import RESTful from "./Views/RESTful/RESTful";
 import GraphQL from "./Views/GraphQL/GraphQL";
+import SoapXML from './Views/SOAP_XML/SoapXML';
 
 const client = new ApolloClient({
     uri: 'https://backend-app-8lstn.ondigitalocean.app/graphql',
@@ -19,7 +20,7 @@ function App() {
                     <Route path="/" element={<Inicio />} />
                     <Route path="/button1" element={<RESTful />} />
                     <Route path="/button2" element={<GraphQL />} />
-                    <Route path="/button3" element={<Inicio />} />
+                    <Route path="/button3" element={<SoapXML />} />
                 </Routes>
             </Router>
         </ApolloProvider>
