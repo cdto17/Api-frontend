@@ -90,9 +90,11 @@ body {
 
 .button-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column; /* Cambiamos el flujo a columna */
+    align-items: center; /* Centramos los botones horizontalmente */
+    gap: 10px;
 }
+
 
 .styled-button {
     padding: 15px 30px;
