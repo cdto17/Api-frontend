@@ -202,15 +202,13 @@ function SoapXML() {
                 <button onClick={toggleShowXML} className="styled-button">
                     {showXML ? 'Ocultar XML' : 'Mostrar XML'}
                 </button>
-                <button onClick={toggleShowJSON} className="styled-button">
-                    {showJSON ? "Ocultar JSON" : "Mostrar JSON"}
-                </button>
+                
                 <Link to="/">
                     <button className="styled-button">Inicio</button>
                 </Link>
             </div>
             {showXML && <pre>{songsXML}</pre>}
-            {showJSON && <pre>{JSON.stringify(songs, null, 2)}</pre>}
+            
         </div>
     );
 }
