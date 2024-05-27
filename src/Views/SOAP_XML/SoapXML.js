@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function SoapXML() {
     const [songs, setSongs] = useState([]);
-    const [songsXML, setSongsXML] = useState([]);
+    const [songsXML, setSongsXML] = useState('');
+    const [showXML, setShowXML] = useState(false);
     const [newSong, setNewSong] = useState({
         title: '',
         artist: '',
@@ -148,16 +149,20 @@ function SoapXML() {
         setEditingSong(song);
     };
 
+    const toggleShowXML = () => {
+        setShowXML(!showXML);
+    };
+
     return (
         <div>
-            <h1>Canciones (XML)</h1>
-            <pre>{songsXML}</pre>
-            <h2>Agregar Nueva cancion</h2>
+            <h1>Canciones</h1>
+            {showXML && <pre>{songsXML}</pre>}
+            <h2>Agregar Nueva canción</h2>
             <input type="text" name="title" placeholder="Título" value={newSong.title} onChange={handleInputChange} />
             <input type="text" name="artist" placeholder="Artista" value={newSong.artist} onChange={handleInputChange} />
             <input type="text" name="year" placeholder="Año" value={newSong.year} onChange={handleInputChange} />
             <input type="text" name="coverImage" placeholder="URL de la imagen de portada" value={newSong.coverImage} onChange={handleInputChange} />
-            <button onClick={handleAddSong}>Agregar cancion</button>
+            <button onClick={handleAddSong}>Agregar canción</button>
 
             <h2>Canciones Existentes</h2>
             {songs.length > 0 ? (
@@ -190,6 +195,9 @@ function SoapXML() {
                 <p>No hay canciones disponibles.</p>
             )}
             <div className="button-container">
+                <button onClick={toggleShowXML} className="styled-button">
+                    {showXML ? 'Ocultar XML' : 'Mostrar XML'}
+                </button>
                 <Link to="/">
                     <button className="styled-button">Inicio</button>
                 </Link>
