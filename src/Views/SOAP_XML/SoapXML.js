@@ -5,6 +5,7 @@ function SoapXML() {
     const [songs, setSongs] = useState([]);
     const [songsXML, setSongsXML] = useState('');
     const [showXML, setShowXML] = useState(false);
+    const [showJSON, setShowJSON] = useState(false);
     const [newSong, setNewSong] = useState({
         title: '',
         artist: '',
@@ -153,10 +154,13 @@ function SoapXML() {
         setShowXML(!showXML);
     };
 
+    const toggleShowJSON = () => {
+        setShowJSON(!showJSON);
+    };
+
     return (
         <div>
             <h1>Canciones</h1>
-            {showXML && <pre>{songsXML}</pre>}
             <h2>Agregar Nueva canción</h2>
             <input type="text" name="title" placeholder="Título" value={newSong.title} onChange={handleInputChange} />
             <input type="text" name="artist" placeholder="Artista" value={newSong.artist} onChange={handleInputChange} />
@@ -198,10 +202,15 @@ function SoapXML() {
                 <button onClick={toggleShowXML} className="styled-button">
                     {showXML ? 'Ocultar XML' : 'Mostrar XML'}
                 </button>
+                <button onClick={toggleShowJSON} className="styled-button">
+                    {showJSON ? "Ocultar JSON" : "Mostrar JSON"}
+                </button>
                 <Link to="/">
                     <button className="styled-button">Inicio</button>
                 </Link>
             </div>
+            {showXML && <pre>{songsXML}</pre>}
+            {showJSON && <pre>{JSON.stringify(songs, null, 2)}</pre>}
         </div>
     );
 }
